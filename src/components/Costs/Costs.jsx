@@ -1,5 +1,4 @@
-import React from 'react';
-import Card from './Card';
+import Card from '../UI/Card';
 import CostItem from './CostItem';
 import './Costs.css';
 const Costs = (props) => {
