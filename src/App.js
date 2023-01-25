@@ -37,7 +37,7 @@ function App() {
 
   const adsCostHandler = (cost) => {
     console.log(cost);
-    console.log('app conponnent');
+    console.log('appjs');
   };
 
   return (

@@ -50,7 +50,7 @@ const CostForm = (props) => {
       date: new Date(inputDate),
     };
     props.onSaveCostData(costData);
-    //console.log(costData);
+
     setInputAmount('');
     setInputDate('');
     setInputName('');
