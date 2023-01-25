@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './CostForm.css';
 
 const CostForm = () => {
-  const [name, setName] = useState('');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState('');
+  const [inputName, setInputName] = useState('');
+  const [InputAmount, setInputAmount] = useState('');
+  const [inputDate, setInputDate] = useState('');
 
   /* const [userInput, setUsserInput] = useState({
     name: '',
@@ -13,7 +13,7 @@ const CostForm = () => {
   }); */
 
   const nameCHangeHandler = (event) => {
-    setName(event.target.value);
+    setInputName(event.target.value);
     /* setUsserInput({
       ...userInput,
       name: event.target.value,
@@ -27,22 +27,33 @@ const CostForm = () => {
   };
 
   const amountCHangeHandler = (event) => {
-    setAmount(event.target.value);
+    setInputAmount(event.target.value);
     /* setUsserInput({
       ...userInput,
       amount: event.target.value,
     }); */
   };
   const dateChangeHandler = (event) => {
-    setDate(event.target.value);
+    setInputDate(event.target.value);
     /* setUsserInput({
       ...userInput,
       date: event.target.value,
     }); */
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const costData = {
+      name: inputName,
+      amount: InputAmount,
+      date: new Date(inputDate),
+    };
+    console.log(costData);
+  };
+
   return (
-    <form action="">
+    <form onSubmit={submitHandler} action="">
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label> Name </label>
