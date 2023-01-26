@@ -7,14 +7,14 @@ const Diagram = (props) => {
 
   return (
     <div className="diagram">
-      {props.dataSets.map((dataSet) => {
+      {props.dataSets.map((dataSet) => (
         <DiagramBar
           key={dataSet.label}
           label={dataSet.label}
           value={dataSet.value}
           maxValue={maxMonthCosts}
-        />;
-      })}
+        />
+      ))}
     </div>
   );
 };
