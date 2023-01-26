@@ -25,3 +25,9 @@
   background-color: #2a5c84b2;
   border-color: #2a5c84b2;
 }
+
+button:disabled {
+  background-color: #54738cb2;
+  border-color: #4c6f8cb2;
+  pointer-events: none;
+}

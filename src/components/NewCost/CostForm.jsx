@@ -5,6 +5,7 @@ const CostForm = (props) => {
   const [inputName, setInputName] = useState('');
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
+  const [toggle, setToggle] = useState(true);
 
   /* const [userInput, setUsserInput] = useState({
     name: '',
@@ -14,6 +15,7 @@ const CostForm = (props) => {
 
   const nameCHangeHandler = (event) => {
     setInputName(event.target.value);
+
     /* setUsserInput({
       ...userInput,
       name: event.target.value,
@@ -28,6 +30,7 @@ const CostForm = (props) => {
 
   const amountCHangeHandler = (event) => {
     setInputAmount(event.target.value);
+
     /* setUsserInput({
       ...userInput,
       amount: event.target.value,
@@ -35,10 +38,14 @@ const CostForm = (props) => {
   };
   const dateChangeHandler = (event) => {
     setInputDate(event.target.value);
+
     /* setUsserInput({
       ...userInput,
       date: event.target.value,
     }); */
+  };
+  const toggleHandler = () => {
+    setToggle(!toggle);
   };
 
   const submitHandler = (event) => {
@@ -55,6 +62,17 @@ const CostForm = (props) => {
     setInputDate('');
     setInputName('');
   };
+
+  if (toggle) {
+    return (
+      <div className="new-cost__actions">
+        <button type="submit" onClick={toggleHandler}>
+          {' '}
+          add consumption
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={submitHandler} action="">
@@ -84,8 +102,19 @@ const CostForm = (props) => {
           />
         </div>
         <div className="new-cost__actions">
-          <button type="submit"> add consumption</button>
-          <button type="submit">cancel</button>
+          {!(inputName && inputAmount && inputDate) && (
+            <button type="submit" disabled>
+              {' '}
+              add consumption
+            </button>
+          )}
+          {inputName && inputAmount && inputDate && (
+            <button type="submit"> add consumption</button>
+          )}
+
+          <button type="submit" onClick={toggleHandler}>
+            cancel
+          </button>
         </div>
       </div>
     </form>
